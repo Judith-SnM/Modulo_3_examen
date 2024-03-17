@@ -19,26 +19,28 @@
             </a>
         </div>
     </nav>
-    <main>
-        <section class="container text-center">
-            <img src="./assets/img/sh1.jpg" class="rounded mx-auto d-block" alt="portada">
-            <h1>Encuentra tu SuperHero</h1>
+    <main class="container">
+        <img src="./assets/img/sh1.jpg" class="rounded mx-auto d-block" alt="portada">
+        <h1 class="text-center">Encuentra tu SuperHero</h1>
 
-            <form id="formulario">
-                <div style="display: flex;flex-direction: column;">
-                    <label>
-                        <h2>Ingresa el número del SuperHero a buscar</h2>
-                    </label>
-                    <input id="numSuperHero" type="text">
-                    <p class="errorSuperHero" style="color:red;font-style: italic;"></p>
-                </div>
-                <div class="py-3">
-                    <button id="botton" type="submit" class="btn btn-primary">Buscar</button>
-                </div>
-
-            </form>
-
+        <form id="formulario" class="container text-center">
+            <h2>Ingresa el número del SuperHero a buscar</h2>
+            <input id="numSuperHero" type="number" placeholder="Ingresa el número del SuperHero" class="form-control mb-2">
+            <div class="valid-feedback mb-2"> 
+                SuperHero encontrado!!
+            </div>
+            <div class="invalid-feedback mb-2">
+                Favor ingresar solo numeros 
+            </div>
+            <button id="botton" type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+        <section class="row">
+            <article class="col-12 col-md-6" id="resulhero">
+                               
+            </article>
         </section>
+
+
 
 
     </main>
@@ -49,9 +51,6 @@
     <script src="https://cdn.canvasjs.com/ga/canvasjs.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 
