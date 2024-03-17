@@ -2,6 +2,7 @@ $(document).ready(function () {
     const superheroe = $(`#formulario`)
     const numSuperHero = $(`#numSuperHero`)
     const resulhero = $(`#resulhero`)
+    const chartContainer = $(`#chartContainer`)
 
     superheroe.on("submit", function (event) {
         event.preventDefault()
@@ -22,7 +23,6 @@ $(document).ready(function () {
 
     })
 
-
     const getSuperHero = (numSuperHerofn) => {
         $.ajax({
             url: `https://www.superheroapi.com/api.php/4905856019427443/${numSuperHerofn}`,
@@ -31,14 +31,16 @@ $(document).ready(function () {
                 const mySuperHero = {
                     Imagen: SuperHero.image.url,
                     nombre: SuperHero.name,
-                    conexiones: SuperHero.connections.group_affiliation,
+                    conexiones: SuperHero.connections["group-affiliation"],
                     publicado: SuperHero.biography.publisher,
                     ocupacion: SuperHero.work.occupation,
-                    aparicion: SuperHero.biography.first_appearance,
+                    aparicion: SuperHero.biography["first-appearance"],
                     altura: SuperHero.appearance.height,
                     peso: SuperHero.appearance.weight,
                     alianza: SuperHero.biography.aliases,
+                    estadistica: SuperHero.powerstats,
                 }
+
                 resulhero.html(`
                 
                 <div class="card mb-3" style="max-width: 540px;">
@@ -65,21 +67,39 @@ $(document).ready(function () {
                         </div>
                     </div>
                 </div>
-                             
-                
                 `)
 
+                const dataPoints = [];
+                for (const [key, value] of Object.entries(mySuperHero.estadistica)) {
+                    dataPoints.push({ label: key, y: parseInt(value) });
+                }
 
+                const options = {
+                    title: {
+                        text: `Estadisticas de Poder para ${mySuperHero.nombre}`
+                    },
+                    theme: "light2",
+                    animationEnabled: true,
+                    data: [
+                        {
+                            type: "pie",
+                            startAngle: 40,
+                            toolTipContent: "<b>{label}</b>: ({y})",
+                            showInLegend: "true",
+                            legendText: "{label}",
+                            indexLabelFontSize: 16,
+                            indexLabel: "{label} - ({y})",
+                            dataPoints: dataPoints,
+                        }
+                    ]
+                }
+                chartContainer.CanvasJSChart(options);
             },
             error(e) {
                 console.log(e)
             }
         })
-
     }
-
-
-
 })
 
 

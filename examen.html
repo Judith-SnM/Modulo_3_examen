@@ -21,7 +21,7 @@
     </nav>
     <main class="container">
         <img src="./assets/img/sh1.jpg" class="rounded mx-auto d-block" alt="portada">
-        <h1 class="text-center">Encuentra tu SuperHero</h1>
+        <h1 class="text-center mb-2">Encuentra tu SuperHero</h1>
 
         <form id="formulario" class="container text-center">
             <h2>Ingresa el número del SuperHero a buscar</h2>
@@ -34,13 +34,15 @@
             </div>
             <button id="botton" type="submit" class="btn btn-primary">Buscar</button>
         </form>
-        <section class="row">
-            <article class="col-12 col-md-6" id="resulhero">
+        <section class="row mb-2">
+            <article class="col-12 col-md-6 mb-2" id="resulhero">
                                
             </article>
+
+            <article class="col-12 col-md-6 mb-2">
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+            </article>
         </section>
-
-
 
 
     </main>
@@ -48,9 +50,10 @@
     <footer>
         <h2 class="text-white fw-bold navbar-brand">SuperHero</h2>
     </footer>
-    <script src="https://cdn.canvasjs.com/ga/canvasjs.min.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 
